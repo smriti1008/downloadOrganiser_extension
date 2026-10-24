@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Download Organizer",
+  "version": "1.0",
+  "description": "Automatically organizes your downloads into folders based on the website's domain.",
+  "permissions": [
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
