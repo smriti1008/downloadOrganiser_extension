@@ -64,3 +64,92 @@ That's it! Download a file normally and check your Downloads directory for the a
 - Chrome Extensions API
 - Manifest V3
 
+## 📂 Project Structure
+
+```text
+downloadOrganiser/
+├── manifest.json    # Extension configuration
+├── background.js    # Download organization logic
+├── README.md        # Project documentation
+└── LICENSE          # MIT License (if included)
+```
+
+## 🌐 Browser Support
+
+| Browser | Supported |
+|---|---|
+| Google Chrome | ✅ Yes |
+| Microsoft Edge | ✅ Yes |
+| Brave | ✅ Yes |
+| Opera | ✅ Yes |
+| Vivaldi | ✅ Yes |
+| Arc | ✅ Yes |
+| Firefox | ❌ No |
+| Safari | ❌ No |
+
+This extension relies on Chrome's `downloads.onDeterminingFilename` API, which is not available in Firefox and Safari in the required form.
+
+## ⚙️ Configuration
+
+Download Organizer works automatically without additional configuration.
+
+**Important:** If Chrome's *Ask where to save each file before downloading* setting is enabled, Chrome may prompt you to choose a location instead of using the suggested folder.
+
+To disable it:
+
+1. Open Chrome Settings.
+2. Navigate to **Downloads**.
+3. Turn off **Ask where to save each file before downloading**.
+
+### Customize Folder Names
+
+Folder naming is handled by the `getFolderName()` function in `background.js`.
+
+- **Keep `www.` in folder names:** Remove the code that strips the `www.` prefix.
+- **Change the fallback folder:** Edit the `FALLBACK_FOLDER` constant.
+
+After making changes, open `chrome://extensions` and reload the extension.
+
+## 🔒 Permissions & Privacy
+
+The extension requests the `downloads` permission to determine and suggest download destinations.
+
+- No browsing history collection.
+- No tracking or analytics.
+- No external network requests.
+- No personal data collection.
+
+Your downloads stay on your device.
+
+## ⚠️ Limitations
+
+- **Subdomains are separate:** `cdn.example.com` and `example.com` create separate folders.
+- **Extension conflicts:** Another extension that modifies download filenames may conflict with Download Organizer.
+- **Downloads directory only:** Chrome extensions cannot use this API to save files to arbitrary locations outside the permitted download directory.
+- **New downloads only:** Existing files are not moved or reorganized.
+- **Browser save prompts:** Chrome's manual save-location setting can override the suggested destination.
+
+## 🤝 Contributing
+
+Contributions, bug reports, and feature suggestions are welcome!
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a pull request describing your improvements.
+
+For major changes, consider opening an issue first to discuss your proposal.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## 👩‍💻 Author
+
+**Smriti**
+
+GitHub: [@smriti1008](https://github.com/smriti1008)
+
+---
+
+*Less clutter. Smarter downloads. Zero extra effort.*
